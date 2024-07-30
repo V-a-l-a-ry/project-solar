@@ -1,0 +1,62 @@
+<!-- intro/templates/intro/purchase_confirmation.html -->
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Confirmation</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        .confirmation-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        
+        .back-button {
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            color: #fff;
+            background-color:blue; /* Change this to your preferred color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 20px;
+        }
+        
+        .back-button:hover {
+            background-color: #218838; /* Change this to your preferred hover color */
+            transform: scale(1.05);
+        }
+        
+        .back-button:focus {
+            outline: none;
+        }  
+    </style>
+</head>
+<body>
+    <div class="container confirmation-container">
+        <h1>Purchase Confirmation</h1>
+        <p>You have selected: {{ panel }}</p>
+        <p>Payment Method: {{ payment_method }}</p>
+        {% if payment_method == 'mpesa' %}
+        <form method="post" action="{% url 'mpesa_payment' %}">
+            {% csrf_token %}
+            <button type="submit" class="button">Complete M-Pesa Payment</button>
+        </form>
+    {% endif %}
+    <form action="{% url 'purchase' %}" method="get">
+        <button type="submit" class="button">Change Payment Method</button>
+    </form>
+        <form action="{% url 'select_solar_needs' %}"method="get">
+            <button type="submit" class="back-button">Back to Solar Needs</button>
+        </form>
+    </div>
+</body>
+</html>

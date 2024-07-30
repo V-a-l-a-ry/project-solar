@@ -1,0 +1,73 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.purchase-info {
+    background: #fff;
+    padding: 20px;
+    margin: 50px auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+}
+
+.purchase-info h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.purchase-info p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #007bff;
+}
+
+.btn-success {
+    background-color: #28a745;
+}
+
+    </style>
+</head>
+<body>
+    <div class="purchase-info">
+        <h1>Choose Your Payment Mode</h1>
+        <form method="post" action="{% url 'purchase' %}">
+            {% csrf_token %}
+            <h2>Select Payment Method</h2>
+            
+            <label>
+                <input type="radio" name="payment_method" value="credit_card" checked>
+                Credit Card
+            </label>
+            <!-- Add other payment methods if needed -->
+    
+            <button type="submit" class="btn btn-primary">Proceed to Payment</button>
+        </form>
+    </div>
+</body>
+</html>

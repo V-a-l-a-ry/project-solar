@@ -1,0 +1,95 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color:rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+        
+        h2 {
+            font-size: 2em;
+            margin-top: 20px;
+            color: #007BFF;
+        }
+        
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("{% static 'panels/groun3.jpg' %}"); /* Replace with your background image path */
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5; /* Adjust opacity for the faded effect */
+            z-index: -1;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ABOUT US</h1>
+        <p>Welcome to our website, where we empower your home with sustainable solar solutions. Our platform is designed to help you choose the best solar panel based on your needs and preferences.</p>
+        <h2>Choosing the Best Panel</h2>
+        <p>We understand that selecting the right solar panel can be challenging. Our website provides detailed information on various types of solar panels, including their efficiency, cost, and suitability for different applications. You can compare features, read customer reviews, and get expert recommendations to make an informed decision.</p>
+        <h2>Making a Purchase</h2>
+        <p>Once you have decided on the perfect solar panel, making a purchase is simple and straightforward. Our secure online platform allows you to place your order with ease. After you have selected your desired panel, you can choose from various payment methods that best suit your needs. Once the payment is processed, you will receive a confirmation email with the details of your purchase and expected delivery time.</p>
+        <h2>Delivery Charges and Waiting Time</h2>
+        <p>Once you've selected your solar panel, our system calculates the delivery charges based on your location. We strive to offer competitive shipping rates and provide estimated delivery times to ensure you know when to expect your package. Our goal is to deliver your solar panel promptly and efficiently.</p>
+        <h2>Our Mission</h2>
+        <p>Our main aim is to make it easy for people to transition from traditional electricity to solar energy. By offering a wide range of solar panels, comprehensive information, and seamless purchasing and delivery processes, we hope to facilitate the adoption of clean energy solutions. We are committed to providing excellent customer service and supporting you every step of the way.</p>
+        <p>Thank you for choosing our website for your solar panel needs. We look forward to helping you power up sustainably.</p>
+    
+        <div class="button-container">
+            <a href="{% url 'homepage' %}" class="back-button">Back to Homepage</a>
+        </div>
+    </div>
+</body>
+</html>

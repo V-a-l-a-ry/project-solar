@@ -1,0 +1,91 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+        
+        .background {
+            background-image: url("{% static 'panels/groun6.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .content {
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .button-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        
+        .intro {
+            margin-top: 50px;
+        }
+        
+        .intro h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .intro p {
+            font-size: 1.2em;
+        }
+        .tagline {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #FFD700; /* Gold color for emphasis */
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="content">
+    <div class="container">
+        <h1>WELCOME TO OUR WEBSITE!</h1>
+        <p class="tagline">Empowering your home, company, solar repairs and cleaning panels with sustainable solar solutions. Discover how we can light up your life!</p>
+                <p>Our website offers the best solutions for your solar panel needs. <br>We provide a variety of panels and payment options to suit your requirements.<br> Explore our services and contact us for more information.</p>
+        <div class="button-container">
+            <a href="{% url 'register' %}" class="btn">View More</a>
+            <a href="{% url 'contact' %}" class="btn">Contact Us</a>
+            <a href="{% url 'about' %}" class="btn">About Us</a>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!-- home_solar_panel_info.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Solar Panel Information</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'js/scripts.js' %}" defer></script>
+
+    
+    <style>
+        body {
+            font-size: 18px;
+            text-align: left;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .solar-panel {
+            width: 80%;
+            margin: 10px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    
+        .solar-panel-image {
+            width: 100%;
+            height: auto;
+            max-width: 800px;
+            margin: 20px 0;
+        }
+        .purchase-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #faf2f2;
+            background-color: #007bff; /* Blue background */
+            border: none;
+            border-radius: 4px; /* Rounded corners for button */
+            cursor: pointer;
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .purchase-button:hover {
+            background-color:green; /* Darker blue on hover */
+        }
+        
+        .additional-info {
+            margin-top: 10px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .back-button-container {
+            margin-top: 40px; /* Adjust spacing as needed */
+            text-align: center;
+        }
+        
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: green;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .back-button:hover {
+            background-color:blue;
+        }
+        
+        .contact-button {
+            background-color:blue;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            border: none;
+        }
+        
+        .contact-button:hover {
+            background-color: green;
+        }
+         
+         
+    </style>
+</head>
+<div class="container">
+    <h1>SOLAR PANELS FOR HOME</h1>
+    <div style="text-align: right; margin: 10px;">
+        <a href="{% url 'contact' %}" class="contact-button">Contact Us</a>
+    </div>
+            <div class=" solar-panel">  
+    <img src="{% static 'panels/monocrystalline.png' %}" alt="Solar Panel" class="solar-panel-image">
+    <div class="info-section">
+        <p class="highlight">Monocrystalline Panel</p>
+        <p>Power Output: 300 Watts</p>
+        <p>Expected Lifespan: 25 years</p>
+        <p>Price: $200</p>
+        <form action="{% url 'order_confirmation' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="panel_name" value="Monocrystalline Panel">
+            <input type="hidden" name="price" value="$200">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+        <button type="submit" class="purchase-button">Order</button>
+    </form>
+        <p class="additional-info">The name “mono-crystalline” indicates that the wafer is made from single-crystal silicon. In mono wafers the electrons that generate a current have more room to move, making monocrystalline solar panels more efficient.
+            Mono solar panels are communicated nearly everywhere as mono PERC panels. PERC stands for “passivated emitter and rear contact” or “rear cell”. Solar panels built with these cells have an additional layer on the back of the cell.
+             This additional layer allows more sunlight to be captured by reflecting unabsorbed light back into the cell for more efficiency.
+        </p>
+    </div>
+    </div>
+    <div class=" solar-panel">
+        <img src="{% static 'panels/polycrystalline.png' %}" alt="Solar Panel" class="solar-panel-image">
+        <div class="info-section">
+            <p class="highlight">Polycrystalline Panel</p>
+            <p>Power Output: 250 Watts</p>
+            <p>Expected Lifespan: 20 years</p>
+            <p>Price: $150</p>
+            <form action="{% url 'order_confirmation' %}" method="post">
+                {% csrf_token %}
+             <input type="hidden" name="panel_name" value="Polycrystalline Panel">
+            <input type="hidden" name="price" value="$150">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+            <button type="submit" class="purchase-button">Order</button>
+        </form>
+            <p class="additional-info">Polycrystalline or multi crystalline solar panels are solar panels that consist of several crystals of silicon in a single PV cell.
+                Poly wafers are made by melting raw silicon and pouring it in a square mold, casting a polysilicon ingot. 
+                This casting process doesn’t align the silicon structure perfectly, which results in the formation of many individual silicon crystals within the ingot. 
+                The nature of the many silicon crystals also produces the speckled, glimmering look and blue colour that polycrystalline solar panels are known for.
+
+            </p>
+        </div>
+    </div>
+    
+    <div class=" solar-panel">
+        <img src="{% static 'panels/Thin_film_solar_cells.png' %}" alt="Solar Panel" class="solar-panel-image">
+        <div class="info-section">
+            <p class="highlight">Thin-Film Panel</p>
+            <p>Power Output: 200 Watts</p>
+            <p>Expected Lifespan: 15 years</p>
+            <p>Price: $100</p>
+            <form action="{% url 'order_confirmation' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="panel_name" value="Thin_film_solar_cells Panel">
+            <input type="hidden" name="price" value="$100">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+            <button type="submit" class="purchase-button">Order</button>
+        </form>
+            <p class="additional-info">Thin-film solar cells are a type of solar cell made by depositing one or more thin layers (thin films or TFs) of photovoltaic material onto a substrate, such as glass, plastic or metal.
+                 Thin-film solar cells are typically a few nanometers (nm) to a few microns (μm) thick–much thinner than the wafers used in conventional crystalline silicon (c-Si) based solar cells, which can be up to 200 μm thick. 
+                Thin-film solar cells are commercially used in several technologies, including cadmium telluride (CdTe), copper indium gallium diselenide (CIGS), and amorphous thin-film silicon (a-Si, TF-Si).
+                Thin-film cells have several advantages over first-generation silicon solar cells, including being lighter and more flexible due to their thin construction. 
+                This makes them suitable for use in building-integrated photovoltaics and as semi-transparent, photovoltaic glazing material that can be laminated onto windows</p>
+        </div>
+    </div>
+    
+    <div class="solar-panel">
+        <img src="{% static 'panels/Solar_roof_shingles.png' %}" alt=" Solar Panel" class="solar-panel-image">
+        <div class="info-section">
+            <p class="highlight">Solar_roof_shingles Panel</p>
+            <p>Power Output: 180 Watts</p>
+            <p>Expected Lifespan: 20 years</p>
+            <p>Price: $250</p>
+            <form action="{% url 'order_confirmation' %}" method="post">
+                {% csrf_token %}
+            <input type="hidden" name="panel_name" value="Solar_roof_shingles Panel">
+            <input type="hidden" name="price" value="$250">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+            <button type="submit" class="purchase-button">Order</button>
+        </form>
+            <p class="additional-info">Solar shingles, also called photovoltaic shingles, are solar panels designed to look like and function as conventional roofing materials, such as asphalt shingle or slate, while also producing electricity.
+                 Solar shingles are a type of solar energy solution known as building-integrated photovoltaics (BIPV).
+                 . Most solar shingles are 12 in × 86 in (300 mm × 2,180 mm) and can be stapled directly to the roofing cloth. When applied they have a 5 in × 86 in (130 mm × 2,180 mm) strip of exposed surface. Different models of shingles have different mounting requirements. 
+                 Some can be applied directly onto roofing felt intermixed with regular asphalt shingles while others may need special installation.</p>
+        </div>
+    </div>
+    
+    <div class="solar-panel">
+        <img src="{% static 'panels/Hybrid_panel.png' %}" alt="Solar Panel" class="solar-panel-image">
+        <div class="info-section">
+            <p class="highlight">Hybrid Panel</p>
+            <p>Power Output: 320 Watts</p>
+            <p>Expected Lifespan: 30 years</p>
+            <p>Price: $300</p>
+            <form action="{% url 'order_confirmation' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="panel_name" value="Hybrid Panel">
+            <input type="hidden" name="price" value="$300">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+            <button type="submit" class="purchase-button">Order</button>
+        </form>
+            <p class="additional-info">Hybrid inverter is a combination of traditional on-grid inverter,solar charge controller and back up inverter. 
+                During normal operation the hybrid inverter synchronizes solar power during the day your mains utility power and supplements your power usage using the grid if necessary . 
+                Batteries are used to supplement your usage during the evening hours.A solar hybrid system setup is best match your budget and house arrangements.
+                 </p>
+        </div>
+    </div>
+   
+</div>
+<button class="back-button" onclick="window.location.href='{% url 'select_solar_needs' %}'">Back to Select Solar Needs</button>
+
+</div>
+</body>
+</html>
+
+    

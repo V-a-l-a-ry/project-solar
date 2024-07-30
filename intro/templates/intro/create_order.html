@@ -1,0 +1,15 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Order</title>
+</head>
+<body>
+   <h1>Create Order for {{ panel.name }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit Order</button>
+    </form>
+</body>
+</html>

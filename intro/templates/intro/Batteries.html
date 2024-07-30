@@ -1,0 +1,290 @@
+{%load static%}
+<!-- batteries.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Batteries</title>
+</head>
+<style>
+    body {
+        font-size: 18px;
+        text-align: left;
+        font-family: Arial, sans-serif;
+    }
+    
+    .container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        text-align: center;
+    }
+    .batteries {
+        width: 80%;
+        margin: 10px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .battery-image {
+        width: 100%;
+        height: auto;
+        max-width: 800px;
+        margin: 20px 0;
+    }
+    .purchase-button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #faf2f2;
+        background-color:black; /* Blue background */
+        border: none;
+        border-radius: 4px; /* Rounded corners for button */
+        cursor: pointer;
+        text-align: center;
+        margin-top: 10px;
+    }
+    
+    .purchase-button:hover {
+        background-color:green; /* Darker blue on hover */
+    }
+    
+    .additional-info {
+        margin-top: 10px;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    .back-button-container {
+        margin-top: 40px; /* Adjust spacing as needed */
+        text-align: center;
+    }
+    
+    .back-button {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        background-color: green;
+        border: none;
+        border-radius: 4px;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .back-button:hover {
+        background-color:black;
+    }
+    
+    .contact-button {
+        background-color:blue;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 18px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 4px;
+        border: none;
+    }
+    
+    .contact-button:hover {
+        background-color: green;
+    }
+     
+     
+</style>
+<body>
+    <div class="container">
+    <h1>Available Batteries</h1>
+    <div style="text-align: right; margin: 10px;">
+        <a href="{% url 'contact' %}" class="contact-button">Contact Us</a>
+    </div>
+    <div class="batteries">
+      <img src="{%static 'panels/plasticCase.png' %}" alt="battery" class="battery-image"> 
+      <div class="info-section">
+        <p class="highlight">12.8V Plastic Case Battery</p>
+        <p>Rated Voltage: 12.8V</p>
+        <p>Rated Capacity(AH):200</p>
+        <p>Energy storage(KW): 2.56</p>
+        <p>Charging Voltage: 14.6+-0.1V</p>
+        <p>Maximum Charge current(A): 40</p>
+        <p>Material: Lithium iron phosphate</p>
+        <p>Case Material: Metal</p>
+        <p>Net Weight(kg): 35</p>
+        <p>Gross weight(kg): 39</p>
+        <form action="{% url 'order_confirmation' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="battery_name" value="12.8V Plastic Case Battery">
+            <input type="hidden" name="price" value="$200">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+        <button type="submit" class="purchase-button">Order</button>
+    </form>
+        <p class="additional-info">Features:
+            Large-capacity power supply cabinet
+            No active cooling system required
+            High operational reliability
+            It can be maintained for more than 10 years at 25℃
+            Optimal management
+            Confirm to RoHs
+        </p>
+    </div>
+    </div>
+    <div class="batteries">
+        <img src="{%static 'panels/RackMount.png' %}" alt="battery" class="battery-image"> 
+        <div class="info-section">
+          <p class="highlight">48V Rack Mount Battery</p>
+          <p>Nominal Voltage: 48V</p><p>Nominal Capacity(AH):120</p>
+          <p>Energy storage(KW): 5.76</p><p>Charging Voltage: 54.8</p>
+          <p>Maximum Charge current(A): 120</p><p>Material: Lithium iron phosphate</p>
+          <p>Case Material: Metal</p> <p>Net Weight(kg): 39</p>
+          <p>Gross weight(kg): 42</p>
+          <form action="{% url 'order_confirmation' %}" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="battery_name" value="48V Rack Mount Battery">
+              <input type="hidden" name="price" value="$200">
+              <label for="quantity">Quantity:</label>
+              <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+          <button type="submit" class="purchase-button">Order</button>
+      </form>
+          <p class="additional-info">Features:
+            Large-capacity power supply cabinet
+            No active cooling system required
+            High operational reliability
+            It can be maintained for more than 10 years at 25℃
+            Optimal management
+            Confirm to RoHs
+          </p>
+      </div>
+      </div>
+      <div class="batteries">
+        <img src="{%static 'panels/stackinone.png' %}" alt="battery" class="battery-image"> 
+        <div class="info-section">
+          <p class="highlight">51.2V 100AH Stack all In One Battery</p>
+          <p>Nominal Voltage: 51.2V</p>
+          <p>Rated Capacity(AH):100</p>
+          <p>Energy storage(KW): 2.56</p>
+          <p>Charging Voltage: 44.8V</p>
+          <p>Material: Lithium iron phosphate</p>
+          <p>Case Material: Metal</p>
+          <p>Net Weight(kg): 50</p>
+          <form action="{% url 'order_confirmation' %}" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="battery_name" value="51.2V 100AH Stack all In One Battery">
+              <input type="hidden" name="price" value="$200">
+              <label for="quantity">Quantity:</label>
+              <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+          <button type="submit" class="purchase-button">Order</button>
+      </form>
+          <p class="additional-info">Features:
+            Stacked movable design for easier installation and smaller landscape
+            Safe & Reliable LiFePO4 solar battery energy storage
+            The intelligent BMS system adopts the latest battery communication system.
+            Flexible investment with 5.12kWh modular design, scalable from 10.24kWh to 50kWh.
+            Reduce electricity bills and increase your energy needs for electrical self-sufficiency.
+          </p>
+      </div>
+      </div>
+      <div class="batteries">
+        <img src="{%static 'panels/wallMount.png' %}" alt="battery" class="battery-image"> 
+        <div class="info-section">
+          <p class="highlight">51.2V 100AH Wall Mounted All In One</p>
+          <p>Rated Voltage: 51.2V</p>
+          <p>Rated Capacity(AH):100</p>
+          <p>Output port mode: Terminal</p>
+          <p>Charging Voltage: 44.8V</p>
+          <p>Charge mode:CC/CP/VP</p>
+          <p>Material: Lithium iron phosphate</p>
+          <p>Case Material: Metal</p>
+          <p>Net Weight(kg): 65</p>
+          <p>Warranty:5years</p>
+          <form action="{% url 'order_confirmation' %}" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="battery_name" value="51.2V 100AH Wall Mounted All In One">
+              <input type="hidden" name="price" value="$200">
+              <label for="quantity">Quantity:</label>
+              <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+          <button type="submit" class="purchase-button">Order</button>
+      </form>
+          <p class="additional-info">FFeatures:
+            Supports multi-machine parallel /BMS intelligent management
+            Supports first class load priority power supply
+            With battery reverse protection compatible anti-current function
+            System integration design easy to install,Built-in inverter plug and play , easy and fast installation& setup
+            Off-grid/Hybrid capable
+          </p>
+      </div>
+      </div>
+      <div class="batteries">
+        <img src="{%static 'panels/stackable.png' %}" alt="battery" class="battery-image"> 
+        <div class="info-section">
+          <p class="highlight">51.2V 100AH Stackable Battery</p>
+          <p>Rated Voltage: 51.2V</p>
+          <p>Rated Capacity(AH):100</p>
+          <p>Output port mode: Terminal</p>
+          <p>Charge cut-off voltage: 58.4V/CELL</p>
+          <p>Discharge cut-off voltage:44.8V</p>
+          <p>Material: Lithium iron phosphate</p>
+          <p>Case Material: Metal</p>
+          <p>Net Weight(kg): 50</p>
+          <p>Maximum charge current:Maximum 0.5C @25℃</p>
+          <form action="{% url 'order_confirmation' %}" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="battery_name" value="51.2V 100AH Stackable Battery">
+              <input type="hidden" name="price" value="$200">
+              <label for="quantity">Quantity:</label>
+              <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+          <button type="submit" class="purchase-button">Order</button>
+      </form>
+          <p class="additional-info">Features:
+            High energy density,
+            Excellent high and low temperature performance,
+            Certain energies are high, Good safety performance,
+            Long cycle life, Fast charge and discharge,
+            Low self-discharge rate,
+            Parallel connection, up to 15, Large capacity, long life,
+            Wall-hanging, superimposed
+          </p>
+      </div>
+      </div>
+      <div class="batteries">
+        <img src="{%static 'panels/wall3.png' %}" alt="battery" class="battery-image"> 
+        <div class="info-section">
+          <p class="highlight">48V Wall Mounted blade Battery</p>
+          <p>Nominal Voltage: 48V</p>
+          <p>Nominal Capacity(AH):138</p>
+          <p>Energy storage(KW): 6.624</p>
+          <p>Charging Voltage: 54.7V</p>
+          <p>Maximum Charge current(A): 120</p>
+          <p>Material: Lithium iron phosphate</p>
+          <p>Case Material: Metal</p>
+          <p>Net Weight(kg): 62.5</p>
+          <p>Gross weight(kg): 70.5</p>
+          <form action="{% url 'order_confirmation' %}" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="battery_name" value="48V Wall Mounted blade Battery">
+              <input type="hidden" name="price" value="$200">
+              <label for="quantity">Quantity:</label>
+              <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+          <button type="submit" class="purchase-button">Order</button>
+      </form>
+          <p class="additional-info">Features:
+            Large-capacity power supply cabinet
+            No active cooling system required
+            High operational reliability
+            It can be maintained for more than 10 years at 25℃
+            Optimal management
+            Confirm to RoHs
+          </p>
+      </div>
+      </div>
+    
+      <button class="back-button" onclick="window.location.href='{% url 'select_solar_needs' %}'">Back to Select Solar Needs</button>
+      </div>
+</body>
+</html>

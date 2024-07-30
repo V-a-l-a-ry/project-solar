@@ -1,0 +1,164 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Solar Panels</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<style>
+    /* styles.css */
+
+/* General page styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 60%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.panel image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.panel p {
+    font-size: 16px;
+    color: #555;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.purchase-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.purchase-button:hover {
+    background-color:blue;
+}
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: blue;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.back-button:hover {
+    background-color: #218838;
+}
+.contact-button {
+    background-color:blue;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: none;
+}
+
+.contact-button:hover {
+    background-color: green;
+}   
+</style>
+<body>
+    <div class="container">
+        <h1 class="title">SOLAR PANELS FOR COMPANY</h1>
+        <div style="text-align: right; margin: 10px;">
+            <a href="{% url 'contact' %}" class="contact-button">Contact Us</a>
+        </div>
+        <div class="panel">
+            <img src="{% static 'panels/amorphous2.png' %}" alt="panel.name" class="panel-image">
+            <div class="panel-info">
+                <h2>Amorphous panel</h2>
+                <p>Power Output: 500W</p>
+                <p>Lifespan: 25 years</p>
+                <p>Price: $800</p>
+                <form method="post" action="{% url 'purchase' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name=" Amorphous panel" value="panel.name">
+                    <button type="submit" class="purchase-button"> Make a Purchase</button>
+                </form>
+        </div>
+    </form>
+        <img src="{% static 'panels/cadmium.png' %}" alt="panel.name" class="panel-image">
+            <div class="panel-info">
+                <h2>Cadmium Telluride panel</h2>
+                <p>Power Output: 500W</p>
+                <p>Lifespan: 25 years</p>
+                <p>Price: $800</p>
+                <form method="post" action="{% url 'purchase' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name=" panel_name" value="panel.name">
+                    <button type="submit" class="purchase-button">Make a Purchase</button>
+                </form>
+                </div>
+                <img src="{% static 'panels/biohybrid.png' %}" alt="panel.name" class="panel-image">
+            <div class="panel-info">
+                <h2>Biohybrid panel</h2>
+                <p>Power Output: 500W</p>
+                <p>Lifespan: 25 years</p>
+                <p>Price: $800</p>
+                <form method="post" action="{% url 'purchase' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="panel_name" value="panel.name">
+                    <button type="submit" class="purchase-button">Make a Purchase</button>
+                </form>
+                </div>
+        <!-- Add more panels as needed -->
+        <div class="back-button-container">
+            <a href="{% url 'select_solar_needs' %}" class="back-button">Back to Select Solar Needs</a>
+        </div>
+    </div>
+</body>
+</html>
