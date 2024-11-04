@@ -164,18 +164,22 @@ def mpesa_payment(request):
 
 def credit_card_payment(request):
     # Implement credit card payment processing logic here
-    # if request.method == 'POST':
-      #  card_name = request.POST.get('card_name')
-      #  card_number = request.POST.get('card_number')
-      ##  expiry_date = request.POST.get('expiry_date')
-      #  cvv = request.POST.get('cvv')
+    if request.method == 'POST':
+       card_name = request.POST.get('card_name')
+       card_number = request.POST.get('card_number')
+       expiry_date = request.POST.get('expiry_date')
+       cvv = request.POST.get('cvv')
         
         # Process the payment here
         # If successful, redirect to a success page or render success message
         # If failure, redirect to a failure page or render failure message
-       # return redirect('purchase_confirmation')
+   # return redirect('intro/payment_confirmation')
+
     
-     return render(request, 'intro/credit_card_payment.html')
+    return render(request, 'intro/credit_card_payment.html')
+
+def payment_confirmation_view(request):
+    return render(request, 'intro/payment_confirmation.html')
 def company_panel(request):
     return render(request, 'intro/company_panel.html')
        

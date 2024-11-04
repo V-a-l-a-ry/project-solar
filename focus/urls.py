@@ -46,4 +46,5 @@ urlpatterns = [
     path('about/', intro_views.about, name='about'),
     path('repair_request/',intro_views.repair_request_view,name='repair_request'),
     path('Batteries/',intro_views.batteries_view,name='Batteries'),
+    path('payment_confirmation/',intro_views.payment_confirmation_view,name='payment_confirmation'),
 ]    

@@ -22,7 +22,9 @@ urlpatterns= [
      path('purchase/', views.purchase, name='purchase'),
      path('repair_request/',views.repair_request_view, name='repair_request'),
      path('Batteries/',views.batteries_view, name='Batteries'),
+     path('payment_confirmation/',views.payment_confirmation_view,name='payment_confirmation'),
 ]   
+
 
 
     

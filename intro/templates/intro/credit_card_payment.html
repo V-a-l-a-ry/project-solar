@@ -73,7 +73,7 @@ h1 {
 <body>
     <div class="payment-container">
         <h1>Credit Card Payment</h1>
-        <form method="post" action="{% url 'process_payment' %}" class="payment-form">
+        <form method="post" action="{% url 'payment_confirmation' %}">
             {% csrf_token %}
             <label for="card_name">Name on Card</label>
             <input type="text" id="card_name" name="card_name" required>
